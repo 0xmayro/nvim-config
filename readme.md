@@ -1,13 +1,16 @@
 # nvim config
 
-    this is UpperAngel's nvim config.
-    ## installation
-    for Linux/Macos
-    ```shell
-    git clone https://github.com/UpperAngel/nvim.git ~/.config/nvim
-    ```
+this is UpperAngel's nvim config.
+    
+## installation
 
-    ```pwsh
-        git clone https://github.com/UpperAngel/nvim.git $env:LOCALAPPDATA/nvim
-    ```
+Linux/Mac OS
+```shell
+git clone https://github.com/UpperAngel/nvim.git ~/.config/nvim
+```
+
+Windows
+```pwsh
+git clone https://github.com/UpperAngel/nvim.git $env:LOCALAPPDATA/nvim
+```
 
