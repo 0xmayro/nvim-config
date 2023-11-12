@@ -72,5 +72,10 @@ return {
       	{ name = 'cmdline' }
     	})
 		})
+
+		cmp.event:on(
+		'confirm_done',
+		require('nvim-autopairs.completion.cmp').on_confirm_done()
+		)
 	end
 }
