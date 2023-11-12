@@ -27,8 +27,8 @@ local opts = {
 			'tohtml',
 			'tutor',
 			'zipPlugin',
-		}
-	}
+		},
+	},
 }
 
 require('lazy').setup({ { import = 'plugins' }, { import = 'lsp' } }, opts)

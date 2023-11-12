@@ -2,12 +2,13 @@ return {
 	'hrsh7th/nvim-cmp',
 	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
-		 'hrsh7th/cmp-nvim-lsp',
-		 'hrsh7th/cmp-buffer',
-		 'hrsh7th/cmp-path',
-		 'hrsh7th/cmp-cmdline',
-		 'L3MON4D3/LuaSnip',
-		 'saadparwaiz1/cmp_luasnip',
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-path',
+		'hrsh7th/cmp-cmdline',
+		'L3MON4D3/LuaSnip',
+		'saadparwaiz1/cmp_luasnip',
+		'onsails/lspkind.nvim'
 	},
 	config = function()
 		local cmp = require('cmp')
@@ -35,8 +36,15 @@ return {
       	{ name = 'luasnip' },
     	}, {
       	{ name = 'buffer' },
-    	})
-  	})
+    	}),
+  	 	formatting = {
+				format = require('lspkind').cmp_format({
+					mode = 'symbol',
+					maxwidth = 50, 
+					ellipsis_char = '...',
+				})
+			},
+		})
 
   	-- Set configuration for specific filetype.
   	cmp.setup.filetype('gitcommit', {
@@ -63,6 +71,6 @@ return {
     	}, {
       	{ name = 'cmdline' }
     	})
-  	})	
-		end
+		})
+	end
 }
