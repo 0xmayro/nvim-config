@@ -1,11 +1,10 @@
 return {
 	'williamboman/mason.nvim',
-	cmd = 'Mason',
-	event = 'BufReadPre',
+	lazy = false,
 	dependencies = {
 		'williamboman/mason-lspconfig.nvim',
 	},
-	config = function()	
+	config = function()
 		require('mason').setup({
 			ui = {
 				icons = {
