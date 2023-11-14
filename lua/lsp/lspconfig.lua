@@ -54,10 +54,30 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-		return {
-			on_attach = on_attach,
-			capabilities = capabilities,
-		}
+		-- automatic server setup
+		for _, server in ipairs(require('mason-lspconfig').get_installed_servers()) do
+    	if server == 'lua_ls' then
 
+				require('neodev').setup()
+
+        require('lspconfig').lua_ls.setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+          settings = {
+            lua = {
+              diagnostics = {
+                globals = { 'vim' }
+              }
+            }
+          }
+        })
+    	else
+        require('lspconfig')[server].setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+
+        })
+    	end
+		end
 	end
 }
