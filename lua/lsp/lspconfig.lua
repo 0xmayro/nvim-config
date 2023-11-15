@@ -3,6 +3,7 @@ return {
 	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
+		'simrat39/rust-tools.nvim'
 	},
 	config = function()
 		local keymap = vim.keymap
@@ -71,6 +72,13 @@ return {
             }
           }
         })
+			elseif server == 'rust_analyzer' then
+				require('rust-tools').setup({
+					server = {
+						on_attach = on_attach,
+						capabilities = capabilities,
+					}
+				})
     	else
         require('lspconfig')[server].setup({
           on_attach = on_attach,
