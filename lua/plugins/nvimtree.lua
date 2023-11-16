@@ -20,8 +20,9 @@ return {
 		})
 
 		local keymap = vim.keymap
-		opts = { noremap = true, silent = true }
+		local opts = { noremap = true, silent = true }
 		keymap.set('n', '<leader>ee', '<cmd>NvimTreeToggle<CR>', opts)
 		keymap.set('n', '<leader>ef', '<cmd>NvimTreeFocus<CR>', opts)
+
 	end
 }
