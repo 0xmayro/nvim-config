@@ -1,9 +1,8 @@
 return {
 	'neovim/nvim-lspconfig',
-	event = { 'BufReadPre', 'BufNewFile' },
+	event = { 'BufReadPost', 'BufNewFile' },
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
-		'simrat39/rust-tools.nvim'
 	},
 	config = function()
 		local keymap = vim.keymap
@@ -55,11 +54,10 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-		-- automatic server setup
+		
 		for _, server in ipairs(require('mason-lspconfig').get_installed_servers()) do
     	if server == 'lua_ls' then
-
-				require('neodev').setup()
+        require('neodev').setup()
 
         require('lspconfig').lua_ls.setup({
           on_attach = on_attach,
@@ -72,18 +70,11 @@ return {
             }
           }
         })
-			elseif server == 'rust_analyzer' then
-				require('rust-tools').setup({
-					server = {
-						on_attach = on_attach,
-						capabilities = capabilities,
-					}
-				})
     	else
         require('lspconfig')[server].setup({
           on_attach = on_attach,
           capabilities = capabilities,
-
+           
         })
     	end
 		end
