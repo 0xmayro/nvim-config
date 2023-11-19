@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
 		'simrat39/rust-tools.nvim',
+		'floke/neodev.nvim'
 	},
 	config = function()
 		local lspconfig = require('lspconfig')
@@ -57,21 +58,31 @@ return {
 		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 
+
 		for _, server in ipairs(require('mason-lspconfig').get_installed_servers()) do
     	if server == 'lua_ls' then
-        require('neodev').setup()
+				require('neodev').setup()
 
 				lspconfig.lua_ls.setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-          settings = {
-            lua = {
-              diagnostics = {
-                globals = { 'vim' },
-              }
-            }
-          }
-        })
+					on_attach = on_attach,
+					capabilities = capabilities,
+					settings = {
+						lua = {
+							diagnostics = {
+								globals = { 'vim', },
+							},
+							workspace = {
+								library = {
+									[vim.fn.expand('$VIMRUNTIME/lua')] = true,
+									[vim.fn.stdpath('config') .. '/lua'] = true,
+								},
+							},
+							telemetry = {
+								enable = false,
+							}
+						},
+					},
+				})
     	elseif server == 'rust_analyzer' then
         require('rust-tools').setup({
 					server = {
