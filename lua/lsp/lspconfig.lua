@@ -3,6 +3,8 @@ return {
 	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
+
+		-- language spacific plugins
 		'simrat39/rust-tools.nvim',
 		'floke/neodev.nvim'
 	},
@@ -57,8 +59,7 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-
-
+		-- automatic lsp setup
 		for _, server in ipairs(require('mason-lspconfig').get_installed_servers()) do
     	if server == 'lua_ls' then
 				require('neodev').setup()

@@ -27,5 +27,4 @@ opt.splitright = true
 opt.splitbelow = true
 opt.autochdir = false
 opt.modifiable = true
-opt.iskeyword:append('-')
 opt.clipboard:append('unnamedplus')
