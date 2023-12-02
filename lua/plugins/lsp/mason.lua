@@ -17,10 +17,12 @@ return {
 			},
 		})
 		require('mason-lspconfig').setup({
-			ensure_installed = { 'lua_ls', 'rust_analyzer', 'pyright', 'tsserver' },
+			ensure_installed = { 'lua_ls', 'rust_analyzer', 'pyright', 'tsserver', 'svelte', 'html', 'cssls' },
 		})
 
 		-- automatic lsp setup
+		require('neoconf').setup()
+
 		for _, server in ipairs(require('mason-lspconfig').get_installed_servers()) do
 			if server == 'lua_ls' then
 				require('neodev').setup()

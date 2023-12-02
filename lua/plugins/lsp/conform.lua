@@ -8,6 +8,10 @@ return {
 				lua = { 'stylua' },
 				python = { 'isort', 'black' },
 				javascript = { 'prettierd' },
+				typescript = { 'prettierd' },
+				svelte = { 'prettierd' },
+				html = { 'prettierd' },
+				css = { 'prettierd' },
 			},
 			format_on_save = {
 				timeout = 1000,

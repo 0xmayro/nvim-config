@@ -6,7 +6,7 @@ return {
 
 		-- language spacific plugins
 		'simrat39/rust-tools.nvim',
-		'floke/neodev.nvim',
+		'folke/neodev.nvim',
 	},
 	config = function() end,
 }
