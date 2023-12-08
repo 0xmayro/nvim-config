@@ -6,7 +6,7 @@ return {
 	},
 	config = function()
 		local lspconfig = require('lspconfig')
-		local lsp_settings = require('util.lsp_settings')
+		local lsp_settings = require('util.lsp')
 		require('mason').setup({
 			ui = {
 				icons = {
@@ -22,7 +22,6 @@ return {
 
 		-- automatic lsp setup
 		require('neoconf').setup()
-
 		for _, server in ipairs(require('mason-lspconfig').get_installed_servers()) do
 			if server == 'lua_ls' then
 				require('neodev').setup()
