@@ -27,3 +27,4 @@ opt.splitbelow = true
 opt.autochdir = false
 opt.modifiable = true
 opt.clipboard:append('unnamedplus')
+opt.updatetime = 300
