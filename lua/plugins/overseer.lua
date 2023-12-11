@@ -3,5 +3,5 @@ return {
 	lazy = false,
 	config = function()
 		require('overseer').setup()
-	end
+	end,
 }

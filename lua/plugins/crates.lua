@@ -4,13 +4,13 @@ return {
 	dependencies = {
 		'nvim-lua/plenary.nvim',
 	},
-	config = function ()
+	config = function()
 		require('crates').setup({
 			src = {
 				cmp = {
 					enabled = true,
-				}
-			}
+				},
+			},
 		})
-	end
+	end,
 }

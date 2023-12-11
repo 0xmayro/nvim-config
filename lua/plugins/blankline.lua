@@ -4,5 +4,5 @@ return {
 	lazy = false,
 	config = function()
 		require('ibl').setup()
-	end
+	end,
 }
