@@ -6,7 +6,6 @@ return {
 		require('conform').setup({
 			formatters_by_ft = {
 				lua = { 'stylua' },
-				json = { 'prettierd' },
 				c = { 'clang-format' },
 				cpp = { 'clang-format' },
 				python = { 'isort', 'black' },
@@ -15,6 +14,7 @@ return {
 				svelte = { 'prettierd' },
 				html = { 'prettierd' },
 				css = { 'prettierd' },
+				json = { 'prettierd' },
 			},
 			format_on_save = {
 				timeout = 1000,
