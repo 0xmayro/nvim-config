@@ -6,8 +6,6 @@ return {
 		'williamboman/mason-lspconfig.nvim',
 	},
 	config = function()
-		local lspconfig = require('lspconfig')
-		local lsp_settings = require('util.lsp')
 		require('mason').setup({
 			ui = {
 				icons = {
@@ -29,48 +27,5 @@ return {
 				'clangd',
 			},
 		})
-
-		-- automatic lsp setup
-		for _, server in ipairs(require('mason-lspconfig').get_installed_servers()) do
-			if server == 'lua_ls' then
-				require('neodev').setup()
-
-				lspconfig.lua_ls.setup({
-					on_attach = lsp_settings.on_attach,
-					capabilities = lsp_settings.capabilities,
-					settings = {
-						Lua = {
-							completion = {
-								callSnippet = 'Replace',
-							},
-							diagnostics = {
-								globals = { 'vim' },
-							},
-							workspace = {
-								library = {
-									[vim.fn.expand('$VIMRUNTIME/lua')] = true,
-									[vim.fn.stdpath('config') .. '/lua'] = true,
-								},
-							},
-							telemetry = {
-								enable = false,
-							},
-						},
-					},
-				})
-			elseif server == 'rust_analyzer' then
-				require('rust-tools').setup({
-					server = {
-						on_attach = lsp_settings.on_attach,
-						capabilities = lsp_settings.capabilities,
-					},
-				})
-			else
-				lspconfig[server].setup({
-					on_attach = lsp_settings.on_attach,
-					capabilities = lsp_settings.capabilities,
-				})
-			end
-		end
 	end,
 }
