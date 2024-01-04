@@ -4,9 +4,10 @@ this is UpperAngel's nvim config.
 
 ## dependencies
 
-- ripgrep (Telescope live grep)
-- a nerd font for icons
-- nodejs for LSP related stuff
+- Ripgrep (Telescope live grep)
+- Nerd font (Icons)
+- Nodejs (LSP related stuff)
+- Lazygit (Lazygit integration)
     
 ## installation
 
