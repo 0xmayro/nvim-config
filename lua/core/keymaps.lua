@@ -16,7 +16,7 @@ keymap.set('n', '<C-l>', '<C-w>l', opts) -- Navigate Right
 keymap.set('n', '<leader>sv', '<cmd>vsplit<CR>', opts)
 keymap.set('n', '<leader>sh', '<cmd>split<CR>', opts)
 
-keymap.set('n', '<C-Up>', '<cmd>resize -2<CR>', opts)
-keymap.set('n', '<C-Down>', '<cmd>resize +2<CR>', opts)
-keymap.set('n', '<C-Right>', '<cmd>vertical resize -2<CR>', opts)
-keymap.set('n', '<C-Left>', '<cmd>vertical resize +2<CR>', opts)
+keymap.set('n', '<C-Up>', '<cmd>resize +2<CR>', opts)
+keymap.set('n', '<C-Down>', '<cmd>resize -2<CR>', opts)
+keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<CR>', opts)
+keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<CR>', opts)
