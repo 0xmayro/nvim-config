@@ -1,6 +1,11 @@
 # nvim config
 
 this is UpperAngel's nvim config.
+
+## dependencies
+ripgrep (Telescope live grep)
+a nerd font for icons
+nodejs for LSP related stuff
     
 ## installation
 
