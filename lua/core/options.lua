@@ -14,6 +14,7 @@ opt.colorcolumn = '120'
 opt.signcolumn = 'yes'
 opt.scrolloff = 10
 opt.cmdheight = 1
+opt.showmode = false
 
 -- behaviour
 opt.hidden = true
