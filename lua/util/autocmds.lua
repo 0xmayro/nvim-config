@@ -1,8 +1,8 @@
-local lint_group = vim.api.nvim_create_augroup('linting', { clear = false })
+local lsp_group = vim.api.nvim_create_augroup('lspGroup', {})
 
 vim.api.nvim_create_autocmd('BufWritePre', {
-	group = lint_group,
+	group = lsp_group,
 	callback = function()
-		require('lint').try_lint()
+		vim.lsp.buf.format({})
 	end,
 })
