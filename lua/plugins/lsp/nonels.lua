@@ -11,14 +11,9 @@ return {
 			'stylua',
 			'prettierd',
 			'clang_format',
-			'eslint_d',
-			'ruff',
 		}
 
 		local linters = {
-			'stylua',
-			'prettierd',
-			'clang_format',
 			'eslint_d',
 			'ruff',
 		}
