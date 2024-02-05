@@ -62,10 +62,16 @@ return {
 		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 		-- automatic lsp setup
-		for _, server in ipairs(require('mason-lspconfig').get_installed_servers()) do
-			if server == 'lua_ls' then
-				require('neodev').setup()
+		require('neodev').setup()
+		require('mason-lspconfig').setup_handlers({
+			function(server_name) -- default handler (optional)
+				require('lspconfig')[server_name].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+				})
+			end,
 
+			['lua_ls'] = function()
 				lspconfig.lua_ls.setup({
 					on_attach = on_attach,
 					capabilities = capabilities,
@@ -89,19 +95,16 @@ return {
 						},
 					},
 				})
-			elseif server == 'rust_analyzer' then
+			end,
+
+			['rust_analyzer'] = function()
 				require('rust-tools').setup({
 					server = {
 						on_attach = on_attach,
 						capabilities = capabilities,
 					},
 				})
-			else
-				lspconfig[server].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end
-		end
+			end,
+		})
 	end,
 }
