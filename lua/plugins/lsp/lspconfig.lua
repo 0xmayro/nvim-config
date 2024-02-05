@@ -11,7 +11,6 @@ return {
 	},
 	config = function()
 		local lspconfig = require('lspconfig')
-
 		local keymap = vim.keymap
 		local opts = { noremap = true, silent = true }
 
