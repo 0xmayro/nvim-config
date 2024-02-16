@@ -3,14 +3,8 @@ return {
 	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
-
-		'williamboman/mason.nvim',
-		-- language spacific plugins
-		'simrat39/rust-tools.nvim',
-		'folke/neodev.nvim',
 	},
 	config = function()
-		local lspconfig = require('lspconfig')
 		local keymap = vim.keymap
 		local opts = { noremap = true, silent = true }
 
@@ -60,50 +54,9 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-		-- automatic lsp setup
-		require('neodev').setup()
-		require('mason-lspconfig').setup_handlers({
-			function(server_name) -- default handler (optional)
-				require('lspconfig')[server_name].setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-				})
-			end,
-
-			['lua_ls'] = function()
-				lspconfig.lua_ls.setup({
-					on_attach = on_attach,
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							completion = {
-								callSnippet = 'Replace',
-							},
-							diagnostics = {
-								globals = { 'vim' },
-							},
-							workspace = {
-								library = {
-									[vim.fn.expand('$VIMRUNTIME/lua')] = true,
-									[vim.fn.stdpath('config') .. '/lua'] = true,
-								},
-							},
-							telemetry = {
-								enable = false,
-							},
-						},
-					},
-				})
-			end,
-
-			['rust_analyzer'] = function()
-				require('rust-tools').setup({
-					server = {
-						on_attach = on_attach,
-						capabilities = capabilities,
-					},
-				})
-			end,
-		})
+		return {
+			capabilities = capabilities,
+			on_attach = on_attach,
+		}
 	end,
 }
