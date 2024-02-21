@@ -1,12 +1,10 @@
 return {
 	'williamboman/mason.nvim',
-	event = { 'BufReadPre', 'BufNewFile' },
-	cmd = 'Mason',
+	lazy = false,
 	dependencies = {
 		'neovim/nvim-lspconfig',
 		'williamboman/mason-lspconfig.nvim',
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
-
 		-- language spacific plugins
 		'simrat39/rust-tools.nvim',
 		'folke/neodev.nvim',
@@ -77,9 +75,9 @@ return {
 		})
 
 		require('mason-tool-installer').setup({
-			ensure_installed = vim.tbl_extend('force', tools.formmaters, tools.linters),
+			ensure_installed = vim.list_extend(tools.formmaters, tools.linters),
 			run_on_Start = true,
-			start_delay = 2000,
+			start_delay = 200,
 		})
 	end,
 }
