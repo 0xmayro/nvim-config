@@ -14,6 +14,8 @@ return {
 	config = function()
 		local lspconfig = require('lspconfig')
 		local lspconfig_settings = require('plugins.lsp.lspconfig')
+		local tools = require('utils.tools')
+
 		require('mason').setup({
 			ui = {
 				icons = {
@@ -24,22 +26,13 @@ return {
 			},
 		})
 
-		-- automatic lsp setup
 		require('neodev').setup()
 
 		require('mason-lspconfig').setup({
-			ensure_installed = {
-				'lua_ls',
-				'rust_analyzer',
-				'pyright',
-				'tsserver',
-				'svelte',
-				'html',
-				'cssls',
-				'clangd',
-			},
+			ensure_installed = tools.lsp,
+
 			handlers = {
-				function(server_name) -- default handler (optional)
+				function(server_name)
 					lspconfig[server_name].setup({
 						on_attach = lspconfig_settings.on_attach,
 						capabilities = lspconfig_settings.capabilities,
@@ -84,16 +77,9 @@ return {
 		})
 
 		require('mason-tool-installer').setup({
-			ensure_installed = {
-				'stylua',
-				'prettierd',
-				'clang-format',
-
-				'eslint_d',
-				'ruff',
-			},
+			ensure_installed = vim.tbl_extend('force', tools.formmaters, tools.linters),
 			run_on_Start = true,
-			start_delay = 3000,
+			start_delay = 2000,
 		})
 	end,
 }
