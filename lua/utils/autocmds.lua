@@ -1,8 +1,9 @@
-local lsp_group = vim.api.nvim_create_augroup('lspGroup', {})
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 
-vim.api.nvim_create_autocmd('BufWritePre', {
-	group = lsp_group,
+vim.api.nvim_create_autocmd('TextYankPost', {
+	group = highlight_group,
+	pattern = '*',
 	callback = function()
-		vim.lsp.buf.format({})
+		vim.highlight.on_yank()
 	end,
 })

@@ -48,6 +48,9 @@ return {
 								},
 								diagnostics = {
 									globals = { 'vim' },
+									disable = {
+										'missing-fields',
+									}
 								},
 								workspace = {
 									library = {
@@ -75,7 +78,7 @@ return {
 		})
 
 		require('mason-tool-installer').setup({
-			ensure_installed = vim.list_extend(tools.formmaters, tools.linters),
+			ensure_installed = tools.formmaters,
 			run_on_Start = true,
 			start_delay = 200,
 		})

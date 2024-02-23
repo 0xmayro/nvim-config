@@ -5,7 +5,7 @@ this is UpperAngel's nvim config.
 ## dependencies
 
 - Ripgrep (Telescope live grep)
-- Nerd font (Icons)
+- A nerd font (Icons)
 - Nodejs (LSP related stuff)
 - Lazygit (Lazygit integration)
     

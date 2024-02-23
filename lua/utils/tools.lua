@@ -14,10 +14,8 @@ M.lsp = {
 M.formmaters = {
 	'stylua',
 	'prettierd',
+	'black',
+	'isort',
 }
 
-M.linters = {
-	'eslint_d',
-	'ruff',
-}
 return M
