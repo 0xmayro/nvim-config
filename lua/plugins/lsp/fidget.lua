@@ -1,7 +1,7 @@
 return {
-	'lewis6991/gitsigns.nvim',
+	'j-hui/fidget.nvim',
 	event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
 	config = function()
-		require('gitsigns').setup({})
-	end,
+		require('fidget').setup()
+	end
 }
