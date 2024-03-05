@@ -1,6 +1,6 @@
 return {
 	'hrsh7th/nvim-cmp',
-	event = { 'BufFilePost', 'BufFilePre', 'BufNewFile' },
+	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
 		'L3MON4D3/LuaSnip',
@@ -29,7 +29,6 @@ return {
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
 				{ name = 'luasnip' },
-				{ name = 'crates' },
 				{ name = 'path' },
 			}),
 		})

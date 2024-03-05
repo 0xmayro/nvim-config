@@ -1,6 +1,6 @@
 return {
 	'stevearc/conform.nvim',
-	event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
+	event = 'BufWritePre',
 	config = function()
 		require('conform').setup({
 			formmaters_by_ft = {
