@@ -19,9 +19,4 @@ M.formatters = {
 	'isort',
 }
 
-M.linters = {
-	'eslint_d',
-	'ruff',
-}
-
 return M

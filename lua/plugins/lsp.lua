@@ -71,7 +71,7 @@ return {
 			},
 		})
 		require('mason-tool-installer').setup({
-			ensure_installed = vim.tbl_deep_extend('force', tools.formatters, tools.linters),
+			ensure_installed = tools.formatters,
 			run_on_Start = true,
 			start_delay = 200,
 		})
