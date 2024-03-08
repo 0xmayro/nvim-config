@@ -11,11 +11,17 @@ M.lsp = {
 	'clangd',
 }
 
-M.formmaters = {
+M.formatters = {
 	'stylua',
 	'prettierd',
+	'prettier',
 	'black',
 	'isort',
+}
+
+M.linters = {
+	'eslint_d',
+	'ruff',
 }
 
 return M
