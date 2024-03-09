@@ -17,7 +17,7 @@ return {
 				end,
 			},
 
-			completion = { completeopt = 'menu,menuone,noinsert' },
+			completion = { completeopt = 'menu, menuone, noinsert' },
 
 			mapping = cmp.mapping.preset.insert({
 				['<C-n>'] = cmp.mapping.select_next_item(),
@@ -32,7 +32,5 @@ return {
 				{ name = 'path' },
 			}),
 		})
-
-		cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())
 	end,
 }
