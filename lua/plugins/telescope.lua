@@ -8,18 +8,17 @@ return {
 		'nvim-tree/nvim-web-devicons',
 	},
 	config = function()
-		require('telescope').setup({})
+		require('telescope').setup()
 		require('telescope').load_extension('fzf')
+
 		local builtin = require('telescope.builtin')
 
-		local keymap = vim.keymap
-		local opts = { noremap = true, silent = true }
-
-		keymap.set('n', '<leader>ff', builtin.find_files, opts)
-		keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, opts)
-		keymap.set('n', '<leader>fr', builtin.oldfiles, opts)
-		keymap.set('n', '<leader>fg', builtin.git_files, opts)
-		keymap.set('n', '<leader>fs', builtin.live_grep, opts)
-		keymap.set('n', '<leader>fb', builtin.buffers, opts)
-	end
+		local nmap = require('utils.functions').nmap
+		nmap('<leader>sf', builtin.find_files, 'Search files in cwd')
+		nmap('<leader>/', builtin.current_buffer_fuzzy_find, 'Search in current buffer')
+		nmap('<leader>sr', builtin.oldfiles, 'Search recent files')
+		nmap('<leader>sg', builtin.git_files, 'Search git files')
+		nmap('<leader>ss', builtin.live_grep, 'Search string in cwd')
+		nmap('<leader>sb', builtin.buffers, 'Search in open buffers')
+	end,
 }

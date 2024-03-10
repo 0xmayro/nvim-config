@@ -24,14 +24,14 @@ vim.api.nvim_create_autocmd('CursorHold', {
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = lsp_group,
 	callback = function(event)
-		functions.lmap('gR', builtin.lsp_references, event, 'Goto references')
-		functions.lmap('gD', builtin.lsp_definitions, event, 'Goto definitions')
-		functions.lmap('D', builtin.lsp_type_definitions, event, 'Type definitions')
-		functions.lmap('<leader>ca', vim.lsp.buf.code_action, event, 'Code actions')
-		functions.lmap('<leader>rn', vim.lsp.buf.rename, event, 'Rename')
-		functions.lmap('<leader>D', builtin.diagnostics, event, 'Diagnostics')
-		functions.lmap('[d', vim.diagnostic.goto_prev, event, 'Go to previous diagnostic')
-		functions.lmap(']d', vim.diagnostic.goto_next, event, 'Go to next diagnostic')
-		functions.lmap('K', vim.lsp.buf.hover, event, 'Show hover info')
+		functions.lsp_map('gR', builtin.lsp_references, event, 'Goto references')
+		functions.lsp_map('gD', builtin.lsp_definitions, event, 'Goto definitions')
+		functions.lsp_map('D', builtin.lsp_type_definitions, event, 'Type definitions')
+		functions.lsp_map('<leader>ca', vim.lsp.buf.code_action, event, 'Code actions')
+		functions.lsp_map('<leader>rn', vim.lsp.buf.rename, event, 'Rename')
+		functions.lsp_map('<leader>D', builtin.diagnostics, event, 'Diagnostics')
+		functions.lsp_map('[d', vim.diagnostic.goto_prev, event, 'Go to previous diagnostic')
+		functions.lsp_map(']d', vim.diagnostic.goto_next, event, 'Go to next diagnostic')
+		functions.lsp_map('K', vim.lsp.buf.hover, event, 'Show hover info')
 	end,
 })
