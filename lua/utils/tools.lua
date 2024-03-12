@@ -3,7 +3,7 @@ local M = {}
 M.lsp = {
 	'lua_ls',
 	'rust_analyzer',
-	'pyright',
+	'jedi_language_server',
 	'tsserver',
 	'svelte',
 	'html',
