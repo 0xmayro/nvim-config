@@ -15,7 +15,7 @@ return {
 
 		local nmap = require('utils.functions').nmap
 		nmap('<leader>sf', builtin.find_files, 'Search files in cwd')
-		nmap('<leader>/', builtin.current_buffer_fuzzy_find, 'Search in current buffer')
+		nmap('<leader>s/', builtin.current_buffer_fuzzy_find, 'Search in current buffer')
 		nmap('<leader>sr', builtin.oldfiles, 'Search recent files')
 		nmap('<leader>sg', builtin.git_files, 'Search git files')
 		nmap('<leader>ss', builtin.live_grep, 'Search string in cwd')
