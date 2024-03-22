@@ -3,16 +3,17 @@ return {
 	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-nvim-lua',
+		'hrsh7th/cmp-path',
+		'hrsh7th/cmp-buffer',
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
-		'hrsh7th/cmp-path',
 		'onsails/lspkind.nvim',
 	},
 	config = function()
 		local cmp = require('cmp')
 		local luasnip = require('luasnip')
 		local lspkind = require('lspkind')
-		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 		cmp.setup({
 			snippet = {
@@ -42,19 +43,24 @@ return {
 
 			formatting = {
 				format = lspkind.cmp_format({
-					mode = 'text',
-					maxwidth = 50,
-					ellipsis_char = '...',
-					show_labelDetails = true,
+					mode = 'symbol_text',
 				}),
+				menu = {
+					buffer = '[buf]',
+					nvim_lsp = '[lsp]',
+					nvim_lua = '[api]',
+					path = '[path]',
+					luasnip = '[snip]',
+				},
 			},
 
 			sources = cmp.config.sources({
+				{ name = 'nvim_lua' },
 				{ name = 'nvim_lsp' },
 				{ name = 'luasnip' },
+				{ name = 'buffer' },
 				{ name = 'path' },
 			}),
 		})
-		cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done)
 	end,
 }
