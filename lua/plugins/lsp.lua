@@ -6,6 +6,7 @@ return {
 		'williamboman/mason-lspconfig.nvim',
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
 		'hrsh7th/cmp-nvim-lsp',
+		'folke/neodev.nvim',
 	},
 	config = function()
 		local lspconfig = require('lspconfig')
@@ -27,6 +28,15 @@ return {
 				},
 			},
 		})
+		
+		require('neodev').setup({
+			override = function (_, library)
+				library.enabled = true
+				library.plugins = true
+			end,
+			lspconfig = true,
+			pathStruct = true,
+		})
 
 		require('mason-lspconfig').setup({
 			ensure_installed = tools.lsp,
@@ -45,6 +55,9 @@ return {
 							Lua = {
 								completion = {
 									callSnippet = 'Replace',
+								},
+								runtime = {
+									version = 'LuaJIT',
 								},
 								diagnostics = {
 									globals = { 'vim' },
