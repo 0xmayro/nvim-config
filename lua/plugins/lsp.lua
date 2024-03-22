@@ -5,7 +5,6 @@ return {
 		'neovim/nvim-lspconfig',
 		'williamboman/mason-lspconfig.nvim',
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
-		'folke/neodev.nvim',
 		'hrsh7th/cmp-nvim-lsp',
 	},
 	config = function()
@@ -28,8 +27,6 @@ return {
 				},
 			},
 		})
-
-		require('neodev').setup()
 
 		require('mason-lspconfig').setup({
 			ensure_installed = tools.lsp,

@@ -6,10 +6,12 @@ return {
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
 		'hrsh7th/cmp-path',
+		'onsails/lspkind.nvim',
 	},
 	config = function()
 		local cmp = require('cmp')
 		local luasnip = require('luasnip')
+		local lspkind = require('lspkind')
 		local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 		cmp.setup({
@@ -38,13 +40,21 @@ return {
 				end, { 'i', 's' }),
 			}),
 
+			formatting = {
+				format = lspkind.cmp_format({
+					mode = 'text',
+					maxwidth = 50,
+					ellipsis_char = '...',
+					show_labelDetails = true,
+				}),
+			},
+
 			sources = cmp.config.sources({
 				{ name = 'nvim_lsp' },
 				{ name = 'luasnip' },
 				{ name = 'path' },
 			}),
 		})
-
 		cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done)
 	end,
 }
