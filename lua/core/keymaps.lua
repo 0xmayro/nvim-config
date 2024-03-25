@@ -1,4 +1,4 @@
-local nmap = require('utils.functions').nmap
+local nmap = require('utils.keymap').nmap
 
 -- Globals
 vim.g.mapleader = ' '

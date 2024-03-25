@@ -6,8 +6,8 @@ return {
 	},
 	config = function()
 		require('oil').setup()
-		local nmap = require('utils.functions').nmap
 
-		nmap('<leader>e', '<CMD>Oil<CR>', 'Open Oil')
+		local nmap = require('utils.keymap').nmap
+		nmap('-', '<CMD>Oil<CR>', 'Open perant directory')
 	end,
 }

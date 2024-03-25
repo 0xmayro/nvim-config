@@ -13,7 +13,7 @@ return {
 
 		local builtin = require('telescope.builtin')
 
-		local nmap = require('utils.functions').nmap
+		local nmap = require('utils.keymap').nmap
 		nmap('<leader>sf', builtin.find_files, 'Search files in cwd')
 		nmap('<leader>s/', builtin.current_buffer_fuzzy_find, 'Search in current buffer')
 		nmap('<leader>sr', builtin.oldfiles, 'Search recent files')
