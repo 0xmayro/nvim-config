@@ -1,5 +1,4 @@
 return {
-	{ 'tpope/vim-surround', event = 'InsertEnter' },
-	{ 'tpope/vim-fugitive', event = 'CmdLineEnter' },
-	{ 'tpope/vim-sleuth',   event = 'VeryLazy' },
+	{ 'tpope/vim-sleuth', event = { 'BufReadPre' } },
+	{ 'tpope/vim-surround', event = { 'VeryLazy' } },
 }
