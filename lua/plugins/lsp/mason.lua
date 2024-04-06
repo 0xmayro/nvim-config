@@ -6,8 +6,6 @@ return {
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
 	},
 	config = function()
-		local tools = require('utils.tools')
-
 		require('mason').setup({
 			ui = {
 				icons = {
