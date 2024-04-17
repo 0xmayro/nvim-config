@@ -18,7 +18,6 @@ return {
 
 		require('mason-lspconfig').setup({
 			ensure_installed = {
-
 				'lua_ls',
 				'rust_analyzer',
 				'gopls',
@@ -34,13 +33,13 @@ return {
 
 		require('mason-tool-installer').setup({
 			ensure_installed = {
-
 				'stylua',
 				'goimports',
 				'prettierd',
+				'ruff',
 				'prettier',
-				'black',
 				'isort',
+				'shfmt',
 			},
 			run_on_Start = true,
 			start_delay = 200,
