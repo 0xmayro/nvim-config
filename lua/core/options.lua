@@ -1,7 +1,7 @@
 local opt = vim.opt
 
 -- tabs & indentition
-opt.expandtab = false
+opt.expandtab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.wrap = false
