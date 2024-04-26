@@ -1,5 +1,5 @@
 local nmap = require('utils.keymap').nmap
-
+local vmap = require('utils.keymap').vmap
 -- Globals
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -11,10 +11,14 @@ nmap('<C-k>', '<C-w>k', '') -- Navigate Up
 nmap('<C-l>', '<C-w>l', '') -- Navigate Right
 
 -- split Management
-nmap('<leader>sv', '<cmd>vsplit<CR>', 'split vertically')
-nmap('<leader>sh', '<cmd>split<CR>', 'split horziontal')
+nmap('<leader>sv', '<CMD>vsplit<CR>', 'split vertically')
+nmap('<leader>sh', '<CMD>split<CR>', 'split horziontal')
 
-nmap('<C-Up>', '<cmd>resize +2<CR>', '')
-nmap('<C-Down>', '<cmd>resize -2<CR>', '')
-nmap('<C-Right>', '<cmd>vertical resize +2<CR>', '')
-nmap('<C-Left>', '<cmd>vertical resize -2<CR>', '')
+nmap('<C-Up>', '<CMD>resize +2<CR>', '')
+nmap('<C-Down>', '<CMD>resize -2<CR>', '')
+nmap('<C-Right>', '<CMD>vertical resize +2<CR>', '')
+nmap('<C-Left>', '<CMD>vertical resize -2<CR>', '')
+
+-- indenting
+vmap('<', '<gv', 'decrease indenting')
+vmap('>', '>gv', 'increase indenting')
