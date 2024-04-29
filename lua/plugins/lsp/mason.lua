@@ -21,13 +21,14 @@ return {
 				'lua_ls',
 				'rust_analyzer',
 				'gopls',
+				'clangd',
 				'jedi_language_server',
 				'tsserver',
 				'svelte',
 				'html',
 				'cssls',
 				'emmet_language_server',
-				'clangd',
+				'vuels',
 			},
 		})
 
