@@ -65,5 +65,6 @@ return {
 				{ name = 'path' },
 			}),
 		})
+		require('luasnip.loaders.from_lua').load({ paths = { '~/.config/nvim/snippets/' } })
 	end,
 }
