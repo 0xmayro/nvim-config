@@ -6,6 +6,7 @@ return {
 		'hrsh7th/cmp-nvim-lua',
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-nvim-lsp-signature-help',
 		'L3MON4D3/LuaSnip',
 		'saadparwaiz1/cmp_luasnip',
 		'onsails/lspkind.nvim',
@@ -49,22 +50,22 @@ return {
 					mode = 'symbol_text',
 				}),
 				menu = {
+					luasnip = '[snip]',
 					buffer = '[buf]',
 					nvim_lsp = '[lsp]',
 					nvim_lua = '[api]',
 					path = '[path]',
-					luasnip = '[snip]',
 				},
 			},
 
 			sources = cmp.config.sources({
+				{ name = 'luasnip' },
 				{ name = 'nvim_lua' },
 				{ name = 'nvim_lsp' },
-				{ name = 'luasnip' },
+				{ name = 'nvim_lsp_signature_help' },
 				{ name = 'buffer' },
 				{ name = 'path' },
 			}),
 		})
-		require('luasnip.loaders.from_lua').load({ paths = { '~/.config/nvim/snippets/' } })
 	end,
 }
