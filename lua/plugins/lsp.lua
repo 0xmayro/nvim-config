@@ -19,15 +19,7 @@ return {
 			)
 		end
 
-		require('neodev').setup({
-			library = {
-				enabled = true,
-				plugins = true,
-				types = true,
-			},
-			lspconfig = true,
-			pathStruct = true,
-		})
+		require('neodev').setup()
 
 		require('mason').setup({
 			ui = {

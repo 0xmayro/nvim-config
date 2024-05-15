@@ -3,11 +3,9 @@ return {
 	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
 		'hrsh7th/cmp-nvim-lsp',
-		'hrsh7th/cmp-nvim-lua',
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-buffer',
-		'hrsh7th/cmp-nvim-lsp-signature-help',
-		'L3MON4D3/LuaSnip',
+		{ 'L3MON4D3/LuaSnip', build = 'make install_jsergexp' },
 		'saadparwaiz1/cmp_luasnip',
 		'onsails/lspkind.nvim',
 	},
@@ -16,15 +14,13 @@ return {
 		local luasnip = require('luasnip')
 		local lspkind = require('lspkind')
 
-		vim.opt.completeopt = 'menu,menuone,noinsert'
-		vim.opt.shortmess:append('c')
-
 		cmp.setup({
-			snippet = {
-				expand = function(args)
-					luasnip.lsp_expand(args.body)
-				end,
-			},
+			sources = cmp.config.sources({
+				{ name = 'luasnip' },
+				{ name = 'nvim_lua' },
+				{ name = 'nvim_lsp' },
+				{ name = 'path' },
+			}),
 
 			mapping = cmp.mapping.preset.insert({
 				['<C-n>'] = cmp.mapping.select_next_item(),
@@ -32,7 +28,6 @@ return {
 				['<C-b'] = cmp.mapping.scroll_docs(-4),
 				['<C-f'] = cmp.mapping.scroll_docs(4),
 				['<C-y>'] = cmp.mapping.confirm({ select = true }),
-				['<C-Space>'] = cmp.mapping.complete(),
 				['<C-l>'] = cmp.mapping(function()
 					if luasnip.expand_or_locally_jumpable() then
 						luasnip.expand_or_jump()
@@ -44,28 +39,26 @@ return {
 					end
 				end, { 'i', 's' }),
 			}),
-
+			snippet = {
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
+			},
 			formatting = {
 				format = lspkind.cmp_format({
 					mode = 'symbol_text',
+					max_width = 50,
+					ellipsis_char = '...',
+					show_labelDetails = true,
 				}),
 				menu = {
 					luasnip = '[snip]',
-					buffer = '[buf]',
 					nvim_lsp = '[lsp]',
-					nvim_lua = '[api]',
 					path = '[path]',
 				},
 			},
-
-			sources = cmp.config.sources({
-				{ name = 'luasnip' },
-				{ name = 'nvim_lua' },
-				{ name = 'nvim_lsp' },
-				{ name = 'nvim_lsp_signature_help' },
-				{ name = 'buffer' },
-				{ name = 'path' },
-			}),
 		})
+
+		require('luasnip.loaders.from_lua').load({ paths = { vim.fn.stdpath('config') .. '/lua/snippets' } })
 	end,
 }

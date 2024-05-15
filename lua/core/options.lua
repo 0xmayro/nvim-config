@@ -25,9 +25,11 @@ opt.swapfile = false
 opt.backup = false
 opt.undofile = true
 opt.backspace = 'indent,eol,start'
+opt.completeopt = 'menu,menuone,noinsert'
 opt.splitright = true
 opt.splitbelow = true
 opt.autochdir = false
 opt.modifiable = true
 opt.clipboard:append('unnamedplus')
 opt.updatetime = 300
+opt.shortmess:append('c')

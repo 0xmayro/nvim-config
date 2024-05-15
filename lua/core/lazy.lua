@@ -15,19 +15,11 @@ local opts = {
 	defaults = {
 		lazy = true,
 	},
+	change_detection = {
+		notify = false,
+	},
 	install = {
 		colorscheme = { 'catppuccin' },
-	},
-	rtp = {
-		disabled_plugins = {
-			'gzip',
-			'matchit',
-			'netrwPlugin',
-			'tarPlugin',
-			'tohtml',
-			'tutor',
-			'zipPlugin',
-		},
 	},
 }
 

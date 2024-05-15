@@ -11,11 +11,12 @@ return {
 		configs.setup({
 			ensure_installed = {
 				'lua',
+				'python',
 				'json',
 				'vim',
 				'vimdoc',
 				'rust',
-				'python',
+				'go',
 				'javascript',
 				'typescript',
 				'svelte',
@@ -27,7 +28,7 @@ return {
 
 			highlight = {
 				enable = true,
-				additional_regex_highlighting = false,
+				additional_regex_highlighting = true,
 			},
 			autotag = {
 				enable = true,
