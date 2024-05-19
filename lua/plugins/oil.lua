@@ -6,7 +6,9 @@ return {
 	},
 	config = function()
 		require('oil').setup({
-			show_hidden = true,
+			view_options = {
+				show_hidden = true,
+			},
 		})
 
 		local nmap = require('utils.keymap').nmap
