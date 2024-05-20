@@ -5,7 +5,7 @@ return {
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-buffer',
-		{ 'L3MON4D3/LuaSnip', build = 'make install_jsergexp' },
+		{ 'L3MON4D3/LuaSnip', build = 'make install_jsregexp' },
 		'saadparwaiz1/cmp_luasnip',
 		'onsails/lspkind.nvim',
 	},
@@ -58,7 +58,7 @@ return {
 				},
 			},
 		})
-
+		cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())
 		require('luasnip.loaders.from_lua').load({ paths = { vim.fn.stdpath('config') .. '/lua/snippets' } })
 	end,
 }
