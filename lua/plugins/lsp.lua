@@ -33,7 +33,6 @@ return {
 
 		local servers = {
 			jedi_language_server = true,
-			gdscript = true,
 			gopls = true,
 			rust_analyzer = true,
 			clangd = true,
@@ -43,6 +42,9 @@ return {
 			emmet_language_server = true,
 			vuels = true,
 
+			gdscript = {
+				manual_install = true,
+			},
 			tsserver = {
 				settings = {
 					formatexpr = false,
@@ -75,6 +77,15 @@ return {
 			},
 		}
 
+		local servers_to_install = vim.tbl_filter(function(key)
+			local server = servers[key]
+			if type(server) == 'table' then
+				return not server.manual_install
+			else
+				return server
+			end
+		end, vim.tbl_keys(servers))
+
 		local ensure_installed = {
 			'stylua',
 			'goimports',
@@ -85,7 +96,7 @@ return {
 			'shfmt',
 		}
 
-		vim.list_extend(ensure_installed, vim.tbl_keys(servers))
+		vim.list_extend(ensure_installed, servers_to_install)
 		require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
 		for server, config in pairs(servers) do
