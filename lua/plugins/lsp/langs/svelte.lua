@@ -1,3 +1,3 @@
 return {
-	server = 'svelte',
+	server = 'svelte-language-server',
 }
