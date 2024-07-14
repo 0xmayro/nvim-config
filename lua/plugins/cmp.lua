@@ -58,7 +58,7 @@ return {
 				},
 			},
 		})
-		cmp.event:on('confirm_done', require('nvim-autopairs.completion.cmp').on_confirm_done())
+
 		require('luasnip.loaders.from_lua').load({ paths = { vim.fn.stdpath('config') .. '/lua/snippets' } })
 	end,
 }

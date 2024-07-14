@@ -2,7 +2,7 @@ return {
 	'neovim/nvim-lspconfig',
 	event = { 'BufReadPre', 'BufNewFile' },
 	dependencies = {
-		'folke/neodev.nvim',
+		'folke/lazydev.nvim',
 		'williamboman/mason.nvim',
 		'williamboman/mason-lspconfig.nvim',
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -19,7 +19,7 @@ return {
 			)
 		end
 
-		require('neodev').setup()
+		require('lazydev').setup()
 
 		require('mason').setup({
 			ui = {

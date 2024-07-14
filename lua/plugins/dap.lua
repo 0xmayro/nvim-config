@@ -6,7 +6,6 @@ return {
 		'nvim-neotest/nvim-nio',
 		'mfussenegger/nvim-dap-python',
 		'leoluz/nvim-dap-go',
-		'folke/neodev.nvim',
 	},
 	config = function()
 		local dap = require('dap')
