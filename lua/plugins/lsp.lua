@@ -35,13 +35,13 @@ return {
 			jedi_language_server = true,
 			gopls = true,
 			rust_analyzer = true,
+			wgsl_analyzer = true,
 			taplo = true,
 			clangd = true,
 			cssls = true,
 			html = true,
 			svelte = true,
 			emmet_language_server = true,
-			vuels = true,
 
 			gdscript = {
 				manual_install = true,
