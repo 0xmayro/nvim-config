@@ -7,7 +7,6 @@ this is UpperAngel's nvim config.
 - Ripgrep (Telescope live grep)
 - A nerd font (Icons)
 - Nodejs (LSP related stuff)
-- Lazygit (Lazygit integration)
     
 ## installation
 
