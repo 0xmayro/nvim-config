@@ -91,7 +91,7 @@ return {
 			'stylua',
 			'goimports',
 			'prettierd',
-			'ruff',
+			'black',
 			'prettier',
 			'isort',
 			'shfmt',

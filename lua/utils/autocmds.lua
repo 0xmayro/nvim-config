@@ -4,6 +4,7 @@ local lsp_map = require('utils.keymap').lsp_map
 local yank_group = vim.api.nvim_create_augroup('yank-group', { clear = true })
 local lsp_group = vim.api.nvim_create_augroup('lsp-group', { clear = true })
 local diagnostic_group = vim.api.nvim_create_augroup('diagnostic-group', { clear = true })
+local filetype_group = vim.api.nvim_create_augroup('filetype-group', { clear = true })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
 	group = yank_group,
@@ -36,6 +37,20 @@ vim.api.nvim_create_autocmd('CursorHold', {
 				'WinLeave',
 			},
 		})
+	end,
+})
+
+-- change filetype based on path
+vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
+	group = filetype_group,
+	callback = function()
+		local filepath = vim.fn.expand('%:p:h')
+
+		if filepath:match('/.config/zsh') then
+			vim.cmd('set ft=zsh')
+		elseif filepath:match('/.config/sway/') then
+			vim.cmd('set ft=swayconfig')
+		end
 	end,
 })
 vim.api.nvim_create_autocmd('LspAttach', {
